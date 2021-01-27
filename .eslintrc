@@ -1,0 +1,17 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": ["plugin:prettier/recommended", "plugin:react-hooks/recommended"],
+  "plugins": ["prettier", "react-hooks", "react"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

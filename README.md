@@ -1,2 +1,3 @@
 # calendar-prototype
-A calendar webpage 
+
+A calendar webpage
