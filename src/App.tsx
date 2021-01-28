@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Calendar from './pages/Calendar';
+import Home from './pages/Home';
 
 const App = () => {
   return (
     <Layout>
-      <Calendar />
+      <Home />
     </Layout>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Menu, Display } from '../components';
+import { Menu, Calendar } from '../components';
 
-const Calendar = () => {
+const Home = () => {
   return (
     <Container>
       <Menu />
-      <Display />
+      <Calendar />
     </Container>
   );
 };
@@ -19,4 +19,4 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export default Calendar;
+export default Home;
