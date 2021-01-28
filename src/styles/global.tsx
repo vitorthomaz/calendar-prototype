@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     margin: 0px;
 
-    background: ${props => props.theme.colors.primaryBackground};
+    background: ${props => props.theme.colors.pageBackground};
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;

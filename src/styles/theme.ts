@@ -1,7 +1,8 @@
 const theme = {
   typography: {},
   colors: {
-    primaryBackground: '#e0e0e0'
+    pageBackground: '#e0e0e0',
+    primary: '#f5f5f5'
   },
   spacing: {}
 };
