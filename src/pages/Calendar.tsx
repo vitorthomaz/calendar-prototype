@@ -13,8 +13,6 @@ const Calendar = () => {
 };
 
 const Container = styled.div`
-  background: ${props => props.theme.colors.primary};
-
   display: flex;
   flex-direction: row;
   justify-content: center;
