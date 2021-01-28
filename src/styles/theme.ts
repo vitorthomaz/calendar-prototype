@@ -1,9 +1,11 @@
 const theme = {
   typography: {},
-  colors: {},
+  colors: {
+    primaryBackground: '#e0e0e0'
+  },
   spacing: {}
 };
 
-export const CustomTheme = typeof theme;
+export type CustomTheme = typeof theme;
 
 export default theme;
