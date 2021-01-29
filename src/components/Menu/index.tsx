@@ -5,10 +5,12 @@ import { Card } from '../../components';
 import { Container } from './styles';
 
 const Menu = () => {
+  const handleAddButton = () => {};
+
   return (
     <Card>
       <Container>
-        <p>// Action Buttons</p>
+        <button onClick={handleAddButton}>Add Reminder</button>
         <p>// Today Date</p>
         <p>// Reminder List</p>
       </Container>
