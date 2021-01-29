@@ -11,7 +11,7 @@ const weekdays = [
   'Friday',
   'Saturday'
 ];
-const monthdays = Array.from(Array(31), (_, x) => x);
+const monthdays = Array.from(Array(35), (_, x) => x + 1);
 
 const MonthTable = () => {
   return (
