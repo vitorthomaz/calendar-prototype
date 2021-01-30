@@ -1,35 +1,49 @@
-export const calculateDisplayableDates = (currDate: Date): number[] => {
+export const calculateDisplayableDates = (currDate: Date): Date[] => {
   const lastDay = getLastDayOfMonth(currDate).getUTCDate();
+  const year = currDate.getUTCFullYear();
+  const month = currDate.getUTCMonth();
 
   const start = getFirstSunday(currDate);
-  const monthSpan = Array.from(Array(lastDay), (_, id) => id + 1);
   const end = getLastSaturday(currDate);
+
+  const monthSpan = Array.from(
+    Array(lastDay),
+    (_, id) => new Date(year, month, id + 1)
+  );
 
   return [...start, ...monthSpan, ...end];
 };
 
-const getFirstSunday = (utcDate: Date): number[] => {
+const getFirstSunday = (utcDate: Date): Date[] => {
+  const dates: Date[] = [];
+
   const year = utcDate.getUTCFullYear();
   const month = utcDate.getUTCMonth();
 
   const firstWeekdayMonth = getFirstDayOfMonth(utcDate).getUTCDay();
   const interval = firstWeekdayMonth - 1;
 
-  const firstSunday = new Date(year, month, -interval);
+  for (let i = interval; i >= 0; i--) {
+    dates.push(new Date(year, month, -i));
+  }
 
-  return Array.from(
-    Array(interval + 1),
-    (_, id) => id + firstSunday.getUTCDate()
-  );
+  return dates;
 };
 
-const getLastSaturday = (utcDate: Date): number[] => {
+const getLastSaturday = (utcDate: Date): Date[] => {
+  const dates: Date[] = [];
   const lastDatetimeMonth = getLastDayOfMonth(utcDate);
+  const year = utcDate.getUTCFullYear();
+  const month = utcDate.getUTCMonth();
 
   const lastWeekdayMonth = lastDatetimeMonth.getUTCDay();
   const interval = 6 - lastWeekdayMonth;
 
-  return Array.from(Array(interval), (_, id) => id + 1);
+  for (let i = 1; i <= interval; i++) {
+    dates.push(new Date(year, month, lastDatetimeMonth.getUTCDate() + i));
+  }
+
+  return dates;
 };
 
 const getFirstDayOfMonth = (date: Date): Date => {

@@ -6,7 +6,6 @@ import { Menu, Calendar } from '../components';
 const Home = () => {
   return (
     <Container>
-      <Menu />
       <Calendar />
     </Container>
   );

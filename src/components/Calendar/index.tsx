@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Card } from '../../components';
+import { Card, CalendarDay } from '../../components';
 
-import { Container, Grid, WeekdayCard, DayCard } from './styles';
+import { Container, Grid, WeekdayCard } from './styles';
 
 import { calculateDisplayableDates } from '../../utils/datetime';
 
@@ -28,7 +28,7 @@ const Calendar = () => {
             <WeekdayCard key={day}>{day}</WeekdayCard>
           ))}
           {displayedDays.map((day, id) => (
-            <DayCard key={id}>{day}</DayCard>
+            <CalendarDay key={id} day={day} />
           ))}
         </Grid>
       </Container>
