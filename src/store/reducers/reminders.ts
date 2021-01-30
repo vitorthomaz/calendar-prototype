@@ -8,7 +8,8 @@ import {
 
 const localKey = '@redux/reminders';
 
-export const initialState: IReminder[] = [];
+const initialLocalStorage = localStorage.getItem(localKey) || '[]';
+export const initialState: IReminder[] = JSON.parse(initialLocalStorage);
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
