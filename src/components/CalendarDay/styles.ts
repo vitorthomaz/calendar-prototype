@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 interface ContainerProps {
   background?: string;
@@ -35,12 +36,20 @@ export const DateIndicator = styled.div<DateIndicatorProps>`
 `;
 
 export const Button = styled.button`
-  /* flex-shrink: 1; */
   margin: 0;
   padding: 0;
   border: none;
   outline: none;
   background: transparent;
+  cursor: pointer;
+
+  :hover,
+  :focus {
+    .colorable {
+      fill: #3daaff;
+      transition: 0.3s;
+    }
+  }
 `;
 
 export const Content = styled.div`

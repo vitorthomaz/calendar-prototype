@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { AddCircle } from '../../assets/icons';
-import { ReminderList } from '../../components';
+import { ReminderList, Modal } from '../../components';
 
 import { createReminder } from '../../store/actions/reminders';
 
@@ -14,6 +14,9 @@ interface CalendarDayProps {
 
 const CalendarDay: FC<CalendarDayProps> = ({ day }) => {
   const dispatch = useDispatch();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const changeVisibility = (visibility: boolean) => setIsVisible(visibility);
 
   const addReminder = () => {
     const reminder = {
@@ -29,10 +32,11 @@ const CalendarDay: FC<CalendarDayProps> = ({ day }) => {
 
   return (
     <Container background={getBackground(day)}>
+      <Modal day={day} isVisible={isVisible} setIsVisible={changeVisibility} />
       <DateIndicator color={getFontColor(day)}>
         {day.getUTCDate()}
 
-        <Button onClick={addReminder}>
+        <Button onClick={() => setIsVisible(true)}>
           <AddCircle />
         </Button>
       </DateIndicator>
