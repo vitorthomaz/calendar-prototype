@@ -5,3 +5,6 @@ export { default as DateDetails } from './DateDetails';
 export { default as ReminderList } from './ReminderList';
 export { default as CalendarDay } from './CalendarDay';
 export { default as Modal } from './Modal';
+export { default as ReminderForm } from './ReminderForm';
+export { default as Input } from './Input';
+export { default as Select } from './Select';

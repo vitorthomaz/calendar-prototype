@@ -1,25 +1,35 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Close } from '../../assets/icons';
+import { ReminderForm, DateDetails } from '../../components';
+import { IStore } from '../../store';
 
-import { Background, Container, Header, Button } from './styles';
+import { Background, Container, Content, Header, CloseButton } from './styles';
 
 interface ModalProps {
-  day: Date;
   isVisible: boolean;
   setIsVisible: (arg1: boolean) => void;
 }
 
-const Modal: FC<ModalProps> = ({ day, isVisible, setIsVisible }) => {
+const Modal: FC<ModalProps> = ({ isVisible, setIsVisible }) => {
+  const infos = useSelector((store: IStore) => store.infos);
+  const selectedDay = new Date(infos.day);
+
+  const closeModal = () => setIsVisible(false);
+
   return (
     <Background isVisible={isVisible}>
       <Container>
         <Header>
-          <Button onClick={() => setIsVisible(false)}>
+          <CloseButton onClick={closeModal}>
             <Close />
-          </Button>
+          </CloseButton>
         </Header>
-        <p>The day is {day.toISOString()}</p>
+        <Content>
+          <DateDetails datetime={selectedDay} />
+          <ReminderForm extraActionsOnSubmit={closeModal} />
+        </Content>
       </Container>
     </Background>
   );

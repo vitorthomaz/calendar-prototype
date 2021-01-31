@@ -33,6 +33,11 @@ export const Container = styled.div`
   width: 50%;
 `;
 
+export const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const Header = styled.div`
   width: 100%;
 
@@ -41,7 +46,7 @@ export const Header = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.button`
+export const CloseButton = styled.button`
   margin: 0;
   padding: 0;
   border: none;
