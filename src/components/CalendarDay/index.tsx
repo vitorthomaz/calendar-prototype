@@ -10,23 +10,20 @@ import { Container, DateIndicator, Content, Button } from './styles';
 import theme from '../../styles/theme';
 interface CalendarDayProps {
   day: Date;
+  showModal: () => void;
 }
 
-const CalendarDay: FC<CalendarDayProps> = ({ day }) => {
+const CalendarDay: FC<CalendarDayProps> = ({ day, showModal }) => {
   const dispatch = useDispatch();
-  const [isVisible, setIsVisible] = useState(false);
-
-  const changeVisibility = (visibility: boolean) => setIsVisible(visibility);
 
   const openModal = () => {
     const selectedDay = day.toISOString();
     dispatch(setDay(selectedDay));
-    setIsVisible(true);
+    showModal();
   };
 
   return (
     <Container background={getBackground(day)}>
-      <Modal isVisible={isVisible} setIsVisible={changeVisibility} />
       <DateIndicator color={getFontColor(day)}>
         {day.getUTCDate()}
 

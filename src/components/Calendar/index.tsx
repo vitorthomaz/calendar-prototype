@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Card, CalendarDay } from '../../components';
+import { Card, CalendarDay, Modal } from '../../components';
 
 import { Container, Grid, WeekdayCard } from './styles';
 
@@ -17,18 +17,28 @@ const weekdays = [
 ];
 
 const Calendar = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const changeModalVisibility = (visibility: boolean) =>
+    setIsVisible(visibility);
+
   const today = new Date(Date.now());
   const displayedDays = calculateDisplayableDates(today);
 
   return (
     <Card>
+      <Modal isVisible={isVisible} setIsVisible={changeModalVisibility} />
       <Container>
         <Grid>
           {weekdays.map(day => (
             <WeekdayCard key={day}>{day}</WeekdayCard>
           ))}
           {displayedDays.map((day, id) => (
-            <CalendarDay key={id} day={day} />
+            <CalendarDay
+              key={id}
+              day={day}
+              showModal={() => changeModalVisibility(true)}
+            />
           ))}
         </Grid>
       </Container>
