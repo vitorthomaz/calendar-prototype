@@ -18,17 +18,10 @@ const ReminderForm: FC<ReminderFormProps> = ({
   const dispatch = useDispatch();
   const infos = useSelector((store: IStore) => store.infos);
 
-  const [hour, setHour] = useState(0);
+  const [hour, setHour] = useState('');
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [color, setColor] = useState('');
-
-  const clearFields = () => {
-    setHour(0);
-    setName('');
-    setCity('');
-    setColor('');
-  };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +30,7 @@ const ReminderForm: FC<ReminderFormProps> = ({
       selectedDay.getUTCFullYear(),
       selectedDay.getUTCMonth(),
       selectedDay.getUTCDate(),
-      hour
+      Number(hour)
     );
 
     const reminder = {
@@ -49,7 +42,6 @@ const ReminderForm: FC<ReminderFormProps> = ({
     };
 
     dispatch(createReminder(reminder));
-    clearFields();
     extraActionsOnSubmit();
   };
 
@@ -61,7 +53,7 @@ const ReminderForm: FC<ReminderFormProps> = ({
         </Input>
         <Input setValue={(data: string) => setCity(data)}>City:</Input>
         <Input setValue={(data: string) => setColor(data)}>Color:</Input>
-        <Select setValue={(data: number) => setHour(data)}>Hour:</Select>
+        <Select setValue={(data: string) => setHour(data)}>Hour:</Select>
         <FormButton type="submit">Create Reminder</FormButton>
       </Form>
     </Container>

@@ -10,7 +10,7 @@ type OptionType = {
 interface SelectFieldProps {
   options?: OptionType[];
   defaultValue?: string;
-  setValue: (arg1: number) => void;
+  setValue: (arg1: string) => void;
 }
 
 const SelectField: FC<SelectFieldProps> = ({
@@ -25,7 +25,7 @@ const SelectField: FC<SelectFieldProps> = ({
   const onSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
 
-    // setValue(value);
+    setValue(value);
   };
 
   return (

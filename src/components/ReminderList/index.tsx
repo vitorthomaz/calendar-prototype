@@ -12,6 +12,7 @@ interface ReminderListProps {
 
 const ReminderList: FC<ReminderListProps> = ({ selectedDatetime }) => {
   const reminderStore = useSelector((store: IStore) => store.reminders);
+
   const [currDay, setCurrDay] = useState<Date | undefined>(undefined);
   const [todayReminders, setTodayReminders] = useState<IReminder[]>([]);
 
