@@ -28,7 +28,7 @@ const Modal: FC<ModalProps> = ({ isVisible, setIsVisible }) => {
         </Header>
         <Content>
           <DateDetails datetime={selectedDay} />
-          <ReminderForm extraActionsOnSubmit={closeModal} />
+          {isVisible && <ReminderForm extraActionsOnSubmit={closeModal} />}
         </Content>
       </Container>
     </Background>
