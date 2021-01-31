@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { setDay } from '../../store/actions/infos';
+
 import { AddCircle } from '../../assets/icons';
 import { ReminderList, Modal } from '../../components';
-
-import { createReminder } from '../../store/actions/reminders';
 
 import { Container, DateIndicator, Content, Button } from './styles';
 import theme from '../../styles/theme';
@@ -18,25 +18,19 @@ const CalendarDay: FC<CalendarDayProps> = ({ day }) => {
 
   const changeVisibility = (visibility: boolean) => setIsVisible(visibility);
 
-  const addReminder = () => {
-    const reminder = {
-      uuid: '123124',
-      datetime: day.toISOString(),
-      name: 'lembrete',
-      city: 'sao luis',
-      color: '#a0f'
-    };
-
-    dispatch(createReminder(reminder));
+  const openModal = () => {
+    const selectedDay = day.toISOString();
+    dispatch(setDay(selectedDay));
+    setIsVisible(true);
   };
 
   return (
     <Container background={getBackground(day)}>
-      <Modal day={day} isVisible={isVisible} setIsVisible={changeVisibility} />
+      <Modal isVisible={isVisible} setIsVisible={changeVisibility} />
       <DateIndicator color={getFontColor(day)}>
         {day.getUTCDate()}
 
-        <Button onClick={() => setIsVisible(true)}>
+        <Button onClick={openModal}>
           <AddCircle />
         </Button>
       </DateIndicator>
