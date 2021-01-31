@@ -1,9 +1,10 @@
 import { createStore } from 'redux';
 
-import reducers, { remindersState } from './reducers';
+import reducers, { remindersState, infosState } from './reducers';
 
 const initialState = {
-  reminders: remindersState
+  reminders: remindersState,
+  infos: infosState
 };
 export type IStore = typeof initialState;
 

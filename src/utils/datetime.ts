@@ -58,3 +58,7 @@ const getLastDayOfMonth = (date: Date): Date => {
 
   return new Date(year, month + 1, 0);
 };
+
+export const today = () => {
+  return new Date(Date.now());
+};
