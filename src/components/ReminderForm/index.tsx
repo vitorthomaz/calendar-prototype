@@ -27,9 +27,9 @@ const ReminderForm: FC<ReminderFormProps> = ({
     event.preventDefault();
     const selectedDay = new Date(infos.day);
     const reminderDay = new Date(
-      selectedDay.getUTCFullYear(),
-      selectedDay.getUTCMonth(),
-      selectedDay.getUTCDate(),
+      selectedDay.getFullYear(),
+      selectedDay.getMonth(),
+      selectedDay.getDate(),
       Number(hour)
     );
 

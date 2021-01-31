@@ -7,7 +7,7 @@ interface DateDetailsProps {
 }
 
 const DateDetails: FC<DateDetailsProps> = ({ datetime }) => {
-  const day = datetime.getUTCDate();
+  const day = datetime.getDate();
   const month = datetime
     .toLocaleString('default', { month: 'short' })
     .replace(/\./g, '');

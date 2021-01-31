@@ -25,7 +25,7 @@ const CalendarDay: FC<CalendarDayProps> = ({ day, showModal }) => {
   return (
     <Container background={getBackground(day)}>
       <DateIndicator color={getFontColor(day)}>
-        {day.getUTCDate()}
+        {day.getDate()}
 
         <Button onClick={openModal}>
           <AddCircle />
@@ -40,7 +40,7 @@ const CalendarDay: FC<CalendarDayProps> = ({ day, showModal }) => {
 
 const getBackground = (day: Date) => {
   let background = '#fff';
-  const weekday = day.getUTCDay();
+  const weekday = day.getDay();
 
   if (weekday === 0 || weekday === 6) {
     background = theme.colors.clearGray;
@@ -51,7 +51,7 @@ const getBackground = (day: Date) => {
 
 const getFontColor = (day: Date) => {
   let color = '#000';
-  const weekday = day.getUTCDay();
+  const weekday = day.getDay();
 
   if (weekday === 0 || weekday === 6) {
     color = theme.colors.weakBlue;

@@ -17,32 +17,42 @@ const ReminderList: FC<ReminderListProps> = ({ selectedDatetime }) => {
   const [todayReminders, setTodayReminders] = useState<IReminder[]>([]);
 
   useEffect(() => {
-    const year = selectedDatetime.getUTCFullYear();
-    const month = selectedDatetime.getUTCMonth();
-    const date = selectedDatetime.getUTCDate();
+    const year = selectedDatetime.getFullYear();
+    const month = selectedDatetime.getMonth();
+    const date = selectedDatetime.getDate();
     const currDate = new Date(year, month, date);
 
     setCurrDay(currDate);
   }, [selectedDatetime]);
 
   useEffect(() => {
-    const reminders = reminderStore.filter(reminder => {
-      if (!reminder.datetime) return false;
+    const reminders = reminderStore
+      .filter(reminder => {
+        if (!reminder.datetime) return false;
 
-      const datetime = new Date(reminder.datetime);
+        const datetime = new Date(reminder.datetime);
 
-      const year = datetime.getUTCFullYear();
-      const month = datetime.getUTCMonth();
-      const date = datetime.getUTCDate();
-      const reminderDatetime = new Date(year, month, date);
+        const year = datetime.getFullYear();
+        const month = datetime.getMonth();
+        const date = datetime.getDate();
+        const reminderDatetime = new Date(year, month, date);
 
-      const reminderMilis = reminderDatetime.getTime();
-      const currMilis = currDay?.getTime();
+        const reminderMilis = reminderDatetime.getTime();
+        const currMilis = currDay?.getTime();
 
-      if (reminderMilis === currMilis) return true;
+        if (reminderMilis === currMilis) return true;
 
-      return false;
-    });
+        return false;
+      })
+      .sort((a, b) => {
+        if (!a.datetime) return 0;
+        if (!b.datetime) return 0;
+
+        if (a.datetime > b.datetime) return 1;
+        if (a.datetime < b.datetime) return -1;
+
+        return 0;
+      });
 
     setTodayReminders(reminders);
   }, [reminderStore, currDay]);
