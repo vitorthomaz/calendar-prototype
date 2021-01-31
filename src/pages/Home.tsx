@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Menu, Calendar } from '../components';
+import { Calendar } from '../components';
 
 const Home = () => {
   return (
