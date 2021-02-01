@@ -1,9 +1,26 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-export const Label = styled.div``;
+  margin-bottom: 8px;
+`;
 
-export const Select = styled.select``;
+export const Label = styled.div`
+  font-weight: bold;
+`;
 
-export const Option = styled.option``;
+export const Select = styled.select`
+  margin-left: 4px;
+  border: none;
+  border-bottom: 3px solid #aaa;
+  border-radius: 2px;
+  background: transparent;
+  outline: none;
+`;
+
+export const Option = styled.option`
+  background: ${props => props.theme.colors.pageBackground};
+`;

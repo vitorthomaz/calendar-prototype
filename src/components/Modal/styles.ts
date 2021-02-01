@@ -30,12 +30,15 @@ export const Container = styled.div`
 
   border-radius: 8px;
   padding: 16px;
-  width: 50%;
+  width: 40%;
 `;
 
 export const Content = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 export const Header = styled.div`

@@ -60,19 +60,4 @@ export const Content = styled.div`
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #adadad;
-  }
 `;

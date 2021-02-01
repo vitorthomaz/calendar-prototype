@@ -1,14 +1,19 @@
-import React, { FC, ReactNode, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
 import { Container, Label, Input } from './styles';
 
 interface InputProps {
+  placeholder?: string;
   setValue: (arg1: string) => void;
   maxLength?: number;
-  children?: ReactNode;
 }
 
-const InputField: FC<InputProps> = ({ children, setValue, maxLength }) => {
+const InputField: FC<InputProps> = ({
+  children,
+  placeholder,
+  setValue,
+  maxLength
+}) => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const typed = event.target.value;
     setValue(typed);
@@ -18,7 +23,11 @@ const InputField: FC<InputProps> = ({ children, setValue, maxLength }) => {
     <Container>
       <Label>
         {children}
-        <Input maxLength={maxLength} onChange={onChange} />
+        <Input
+          maxLength={maxLength}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
       </Label>
     </Container>
   );

@@ -48,12 +48,27 @@ const ReminderForm: FC<ReminderFormProps> = ({
   return (
     <Container>
       <Form onSubmit={onSubmit}>
-        <Input setValue={(data: string) => setName(data)} maxLength={30}>
+        <Input
+          setValue={(data: string) => setName(data)}
+          maxLength={30}
+          placeholder="What is this event?"
+        >
           Name:
         </Input>
-        <Input setValue={(data: string) => setCity(data)}>City:</Input>
-        <Input setValue={(data: string) => setColor(data)}>Color:</Input>
+        <Input
+          setValue={(data: string) => setCity(data)}
+          placeholder="Where will this event be?"
+        >
+          City:
+        </Input>
+        <Input
+          setValue={(data: string) => setColor(data)}
+          placeholder="Type the color name"
+        >
+          Color:
+        </Input>
         <Select setValue={(data: string) => setHour(data)}>Hour:</Select>
+
         <FormButton type="submit">Create Reminder</FormButton>
       </Form>
     </Container>
