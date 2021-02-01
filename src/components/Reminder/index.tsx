@@ -27,7 +27,7 @@ const Reminder: FC<ReminderProps> = ({ reminder }) => {
   };
 
   return (
-    <Container background={color || '#aaaaaa'}>
+    <Container background={color || '#e2e2e2'}>
       <Name>
         {name}, {hour}:00{getFormat(hour)}
       </Name>

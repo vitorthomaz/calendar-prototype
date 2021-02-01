@@ -4,6 +4,7 @@ import { Container, Label, Input } from './styles';
 
 interface InputProps {
   placeholder?: string;
+  required?: boolean;
   setValue: (arg1: string) => void;
   maxLength?: number;
 }
@@ -11,6 +12,7 @@ interface InputProps {
 const InputField: FC<InputProps> = ({
   children,
   placeholder,
+  required,
   setValue,
   maxLength
 }) => {
@@ -27,6 +29,7 @@ const InputField: FC<InputProps> = ({
           maxLength={maxLength}
           onChange={onChange}
           placeholder={placeholder}
+          required={required}
         />
       </Label>
     </Container>

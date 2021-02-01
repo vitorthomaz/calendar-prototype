@@ -36,7 +36,7 @@ const ReminderForm: FC<ReminderFormProps> = ({
     const reminder = {
       uuid: uuidV4(),
       datetime: reminderDay.toISOString(),
-      name: name,
+      name: name || 'Untitled Reminder',
       city: city,
       color: color
     };
@@ -52,12 +52,14 @@ const ReminderForm: FC<ReminderFormProps> = ({
           setValue={(data: string) => setName(data)}
           maxLength={30}
           placeholder="What is this event?"
+          required
         >
           Name:
         </Input>
         <Input
           setValue={(data: string) => setCity(data)}
           placeholder="Where will this event be?"
+          required
         >
           City:
         </Input>
