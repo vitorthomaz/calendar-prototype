@@ -1,3 +1,9 @@
-# calendar-prototype
+# Calendar Prototype
 
-A calendar webpage
+A showcase of some features of a calendar built from the ground up
+
+## Running locally
+
+```sh
+  yarn start
+```
