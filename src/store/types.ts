@@ -6,15 +6,13 @@ export interface IReminder {
   color?: string;
 }
 
-export interface IInfos {
-  day: string;
-}
-
 export const CREATE_REMINDER = 'CREATE_REMINDER';
 export const DELETE_REMINDER = 'DELETE_REMINDER';
 export const UPDATE_REMINDER = 'UPDATE_REMINDER';
 
 export const SET_DAY = 'SET_DAY';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 interface createReminderAction {
   type: typeof CREATE_REMINDER;
@@ -33,11 +31,29 @@ interface updateReminderAction {
 
 interface setInfoAction {
   type: typeof SET_DAY;
-  payload: IInfos;
+  payload: {
+    day: string;
+  };
+}
+
+interface openModal {
+  type: typeof OPEN_MODAL;
+  payload: {
+    isVisible: true;
+  };
+}
+
+interface closeModal {
+  type: typeof CLOSE_MODAL;
+  payload: {
+    isVisible: false;
+  };
 }
 
 export type ActionType =
   | createReminderAction
   | deleteReminderAction
   | updateReminderAction
-  | setInfoAction;
+  | setInfoAction
+  | openModal
+  | closeModal;

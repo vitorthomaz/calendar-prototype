@@ -11,9 +11,6 @@ interface ReminderProps {
 }
 
 const Reminder: FC<ReminderProps> = ({ reminder }) => {
-  /**
-   * TODO: Add update reminder function
-   */
   const { uuid, datetime, color, name } = reminder;
   const dispatch = useDispatch();
 

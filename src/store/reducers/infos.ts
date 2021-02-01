@@ -1,15 +1,19 @@
-import { ActionType, SET_DAY } from '../types';
+import { ActionType, SET_DAY, OPEN_MODAL, CLOSE_MODAL } from '../types';
 import { today } from '../../utils/datetime';
 
-const localKey = '@redux/day';
-
-export const initialState = { day: today().toISOString() };
+export const initialState = {
+  day: today().toISOString(),
+  isVisible: false
+};
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
     case SET_DAY:
-      localStorage.setItem(localKey, action.payload.day || '');
       return { ...state, day: action.payload.day };
+    case OPEN_MODAL:
+      return { ...state, isVisible: action.payload.isVisible };
+    case CLOSE_MODAL:
+      return { ...state, isVisible: action.payload.isVisible };
     default:
       return state;
   }
