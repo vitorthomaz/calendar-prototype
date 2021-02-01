@@ -1,6 +1,6 @@
 export interface IReminder {
   uuid: string;
-  datetime?: string;
+  datetime: string;
   city?: string;
   name?: string;
   color?: string;

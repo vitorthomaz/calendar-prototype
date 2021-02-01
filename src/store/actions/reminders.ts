@@ -16,7 +16,7 @@ export const createReminder = ({
   payload: { uuid, datetime, city, name, color }
 });
 
-export const deleteReminder = ({ uuid }: IReminder) => ({
+export const deleteReminder = (uuid: string) => ({
   type: DELETE_REMINDER,
   payload: { uuid }
 });

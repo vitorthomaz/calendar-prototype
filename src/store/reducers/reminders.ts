@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
       createLocal(action.payload);
       return [...state, { ...action.payload }];
     case DELETE_REMINDER:
-      deleteLocal(action.payload);
+      deleteLocal(action.payload.uuid);
       return state.filter(
         ({ uuid }: IReminder) => action.payload.uuid !== uuid
       );
@@ -47,7 +47,7 @@ const createLocal = ({ uuid, datetime, city, name, color }: IReminder) => {
   localStorage.setItem(localKey, updatedRemString);
 };
 
-const deleteLocal = ({ uuid }: IReminder) => {
+const deleteLocal = (uuid: string) => {
   const remString = localStorage.getItem(localKey) || '[]';
   const reminders: IReminder[] = JSON.parse(remString);
   const filteredRem = reminders.filter(reminder => reminder.uuid !== uuid);

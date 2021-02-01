@@ -1,5 +1,5 @@
 export { default as Calendar } from './Calendar';
-export { default as Menu } from './Menu';
+export { default as Reminder } from './Reminder';
 export { default as Card } from './Card';
 export { default as DateDetails } from './DateDetails';
 export { default as ReminderList } from './ReminderList';

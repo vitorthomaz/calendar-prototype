@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 
 import { IStore } from '../../store';
 import { IReminder } from '../../store/types';
+import { Reminder } from '../../components';
 
-import { Container, Reminder } from './styles';
+import { Container } from './styles';
 
 interface ReminderListProps {
   selectedDatetime: Date;
@@ -45,9 +46,6 @@ const ReminderList: FC<ReminderListProps> = ({ selectedDatetime }) => {
         return false;
       })
       .sort((a, b) => {
-        if (!a.datetime) return 0;
-        if (!b.datetime) return 0;
-
         if (a.datetime > b.datetime) return 1;
         if (a.datetime < b.datetime) return -1;
 
@@ -60,7 +58,7 @@ const ReminderList: FC<ReminderListProps> = ({ selectedDatetime }) => {
   return (
     <Container>
       {todayReminders.map((reminder, id) => (
-        <Reminder key={id}>{reminder.name}</Reminder>
+        <Reminder key={id} reminder={reminder} />
       ))}
     </Container>
   );
