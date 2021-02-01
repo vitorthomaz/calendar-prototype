@@ -24,6 +24,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
+    "prestart": "yarn",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
